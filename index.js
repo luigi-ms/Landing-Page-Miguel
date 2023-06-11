@@ -1,35 +1,52 @@
+const cardLeonardo = document.getElementById("card-leonardo");
+const cardBruna = document.getElementById("card-bruna");
+const cardSamantha = document.getElementById("card-samantha");
+const setaDireita = document.getElementById("seta-direita");
+const setaEsquerda = document.getElementById("seta-esquerda");
 
+const cards = ["bruna", "samantha", "leonardo"];
+let current = cards[0];
 
-var Leonardo = window.document.getElementById("cardLeonardo")
-var Bruna = window.document.getElementById("cardBruna")
-var Samantha = window.document.getElementById("cardSamantha")
-var SetaDireita = window.document.getElementById("setaDireita")
-var SetaEsquerda = window.document.getElementById("setaEsquerda")
+setaDireita.addEventListener("click", function(){
+  if(current === cards[0]){
+    cardSamantha.style.display = "flex";
+    cardBruna.style.display = "none";
+    cardLeonardo.style.display = "none";
 
-function RolarCarrosselDireita() {
-    window.document.getElementById("cardBruna").style.display = "none";
-    window.document.getElementById("cardLeonardo").style.display= "flex" ;
-    window.document.getElementById("setaEsquerda").style.display = "flex";
-    window.document.getElementById("setaDireita").style.display="none" ;   
-}
-function RolarCarrosselEsquerda(){
-    window.document.getElementById("cardBruna").style = "display: flex"
-    window.document.getElementById("cardLeonardo").style = "display: none" 
-    window.document.getElementById("setaEsquerda").style =  "display: none"
-    window.document.getElementById("setaDireita").style = "display: flex; margin-top: 55px"
-}
+    current = cards[1];
+  }else if(current === cards[1]){
+    cardSamantha.style.display = "none";
+    cardBruna.style.display = "none";
+    cardLeonardo.style.display = "flex";
+    
+    current = cards[2];
+  }else if(current === cards[2]){
+    cardSamantha.style.display = "none";
+    cardBruna.style.display = "flex";
+    cardLeonardo.style.display = "none";
 
-/*
-function RolarCarrosselDireita() {
-    Bruna.style.display = "none";
-    Leonardo.style.display= "flex" ;
-    SetaEsquerda.style.display = "flex";
-    SetaDireita.style.display="none" ;   
-}
-function RolarCarrosselEsquerda(){
-    Bruna.style = "display: flex"
-    Leonardo.style = "display: none" 
-    SetaEsquerda.style =  "display: none"
-    SetaDireita.style = "display: flex; margin-top: 55px"
-}
-*/
+    current = cards[0];
+  }
+});
+
+setaEsquerda.addEventListener("click", function(){
+  if(current === cards[0]){
+    cardSamantha.style.display = "none";
+    cardBruna.style.display = "none";
+    cardLeonardo.style.display = "flex";
+
+    current = cards[2];
+  }else if(current === cards[1]){
+    cardSamantha.style.display = "none";
+    cardBruna.style.display = "flex";
+    cardLeonardo.style.display = "none";
+    
+    current = cards[0];
+  }else if(current === cards[2]){
+    cardSamantha.style.display = "flex";
+    cardBruna.style.display = "none";
+    cardLeonardo.style.display = "none";
+
+    current = cards[1];
+  }
+});
